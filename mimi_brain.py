@@ -42,32 +42,7 @@ def add_task(title):
     tasks.append(task)
     mimi_say(f"Added '{title}'. Now go do it.", mood="sassy")
 
-def complete_task(title):
-    for task in tasks:
-        if task["title"].lower() == title.lower():
-            if task["completed"]:
-                mimi_say(f"'{title}' was already done! Mimi remembers. 🙄", mood="annoyed")
-            else:
-                task["completed"] = True
-                mimi_say(f"Finally did '{title}'? Miracles happen! 😏✨", mood="proud")
-            return
-    mimi_say(f"Mimi checked everywhere — no task called '{title}'. 🤨", mood="annoyed")
 
-def remind_user():
-    pending = [t for t in tasks if not t["completed"]]
-    if not pending:
-        mimi_say("All done?! Who even ARE you?! Mimi’s proud! 😭💖", mood="proud")
-        return
-    for task in pending:
-        task["days_pending"] += 1
-        if task["days_pending"] == 1:
-            mimi_say(f"'{task['title']}' is still there. Just saying. 😒", mood="neutral")
-        elif task["days_pending"] == 2:
-            mimi_say(f"Mimi’s been patient, but '{task['title']}' is now collecting dust. 🕸️", mood="annoyed")
-        else:
-            mimi_say(f"Three days and '{task['title']}' is STILL not done?! Bold strategy. 😤", mood="annoyed")
-
-        record_ignored_task(task["title"])
 
 # === Step 4: Personality Mood System ===
 
