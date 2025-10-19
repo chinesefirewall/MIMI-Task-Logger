@@ -41,19 +41,6 @@ Data and persistence
 - The app saves tasks, mood points, and Mimi’s current mood to mimi_memory.json in the project root.
 - This is a simple, local, single-user storage. Deleting the file resets the app’s memory.
 
-Limitations (current state)
-- Single-user and local only; no authentication or multi-user support.
-- Tasks are keyed by title and stored in memory first — duplicate titles can cause odd UI behavior (e.g., checkbox collisions) and lookups by title may be ambiguous.
-- No edit/delete for tasks; only add and complete.
-- “days_pending” increments on each reminder click, not actual calendar days.
-
-Roadmap (short list)
-- Prevent duplicate task titles and/or introduce stable task IDs.
-- Add edit/delete actions and confirm dialogs.
-- Improve persistence (schema, timestamps) and possibly migrate to a small DB (TinyDB/SQLite) for reliability.
-- Add basic tests and linting; set up pre-commit.
-- Polish the UI and make accessibility pass (contrast, keyboard nav).
-
 Credits:
 
 Contributors:
